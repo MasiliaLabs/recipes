@@ -40,7 +40,7 @@ masilia/<package>/<version>/
 bin/build.php            compiles them into dist/ (index.json + one json per recipe)
 ```
 
-`php bin/build.php [base-url]` writes `dist/`. For a published endpoint, push the content of `dist/` to the `flex/main` branch; to try them locally, serve `dist/` over HTTP and use `base-url` of that server.
+`php bin/build.php [base-url]` writes `dist/`. **Publishing is automatic**: a push to `main` runs the *Build* workflow, which compiles the recipes and replaces the `flex/main` branch (the one Flex downloads) with `dist/`. To try them locally, serve `dist/` over HTTP (`php -S 127.0.0.1:8099 -t dist`), compile with that `base-url` (`php bin/build.php http://127.0.0.1:8099`) and list `http://127.0.0.1:8099/index.json` in `extra.symfony.endpoint` (with `config.secure-http` set to `false`).
 
 A recipe version applies to the package versions from that one on (`0.5` for `ibexa-blocks` 0.5.x and later, until a newer recipe exists). Add a new directory when a release changes what the recipe should do.
 
