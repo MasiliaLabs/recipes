@@ -1,0 +1,4 @@
+<bg=blue;fg=white>  masilia/ibexa-ai-editor  </>
+
+  * masilia/ibexa-ai must be set up first.
+  * Build the admin:  <info>yarn ibexa-generate-tsconfig</> then <info>php bin/console ibexa:encore:compile</>

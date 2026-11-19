@@ -1,0 +1,7 @@
+<bg=blue;fg=white>  masilia/ibexa-sites  </>
+
+  * Create the tables:  <info>php bin/console doctrine:migrations:migrate</>
+  * Build the admin:  <info>yarn ibexa-generate-tsconfig</> then <info>php bin/console ibexa:encore:compile</>
+  * Give a role the policies <comment>masilia_site / view</> and <comment>masilia_site / manage</>.
+  * Keep a minimal technical siteaccess in config/packages/ibexa.yaml (see the README), then
+    manage the sites in the admin (Sites).

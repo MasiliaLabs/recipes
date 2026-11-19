@@ -1,0 +1,7 @@
+<bg=blue;fg=white>  masilia/editorial-toolbox  </>
+
+  * Add the entry to the front-office Encore build (webpack.config.js):
+      <info>const masilia = require('./vendor/masilia/editorial-toolbox/src/bundle/Resources/encore/masilia.config.js');</>
+      <info>masilia.addEntry(Encore, 'admin-toolbar.js');</>   (before Encore.getWebpackConfig())
+      <info>masilia.patchConfig(config);</>                    (after it)
+  * Render it in your layout:  <info>{{ masilia_editorial_toolbox() }}</>

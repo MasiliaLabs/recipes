@@ -1,0 +1,2 @@
+masilia_ibexa_sites:
+    resource: '@MasiliaIbexaSitesBundle/Resources/config/routes.yaml'

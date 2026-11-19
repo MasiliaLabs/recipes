@@ -1,0 +1,5 @@
+masilia_ibexa_ai:
+    # Encrypts the provider API keys stored in the database: base64 of 32 random bytes.
+    # php -r 'echo base64_encode(random_bytes(32));'   then put it in AI_ENCRYPTION_KEY (.env.local)
+    # When it is empty the key comes from APP_SECRET: changing APP_SECRET makes stored keys unreadable.
+    encryption_key: '%env(default::AI_ENCRYPTION_KEY)%'

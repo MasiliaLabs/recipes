@@ -1,0 +1,11 @@
+masilia_ibexa_blocks:
+    # The names of the content model: change them only if yours differ.
+    # conventions:
+    #     page_type: page
+    #     home_type: home_page
+    #     blocks_field: blocks
+    #     items_field: items
+    #     block_group: Blocks
+    # Directories of *.yaml content type definitions (config/content_model is always read).
+    # model:
+    #     directories: []

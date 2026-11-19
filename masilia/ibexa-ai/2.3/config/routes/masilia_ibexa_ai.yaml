@@ -1,0 +1,2 @@
+masilia_ibexa_ai:
+    resource: '@MasiliaIbexaAiBundle/Resources/config/routes.yaml'

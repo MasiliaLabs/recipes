@@ -1,0 +1,10 @@
+{
+    "bundles": {
+        "Masilia\\Bundle\\IbexaAi\\MasiliaIbexaAiBundle": [
+            "all"
+        ]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    }
+}

@@ -1,0 +1,5 @@
+masilia_editorial_toolbox:
+    system:
+        default:
+            blocks_field: blocks     # the relation list that holds the ordered blocks of a page
+            admin_siteaccess: admin  # the siteaccess of the back office

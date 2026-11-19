@@ -1,0 +1,3 @@
+# Loaded before the routes of Ibexa, which has a /search of its own.
+masilia_ibexa_blocks:
+    resource: '@MasiliaIbexaBlocksBundle/Resources/config/routing.yaml'

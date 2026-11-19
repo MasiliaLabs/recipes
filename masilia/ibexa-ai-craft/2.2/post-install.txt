@@ -1,0 +1,5 @@
+<bg=blue;fg=white>  masilia/ibexa-ai-craft  </>
+
+  * The assistant builds sites and pages out of blocks: its conventions are the ones of
+    masilia_ibexa_blocks (page, home_page, blocks field, block group).
+  * Create the content model first (<info>php bin/console masilia:blocks:model:install</>), then ask the assistant.

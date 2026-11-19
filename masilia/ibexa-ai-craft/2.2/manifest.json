@@ -1,0 +1,7 @@
+{
+    "bundles": {
+        "Masilia\\Bundle\\IbexaAiCraft\\MasiliaIbexaAiCraftBundle": [
+            "all"
+        ]
+    }
+}

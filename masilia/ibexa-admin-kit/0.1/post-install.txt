@@ -1,0 +1,6 @@
+<bg=blue;fg=white>  masilia/ibexa-admin-kit  </>
+
+  * Regenerate the Encore configuration, the TypeScript paths and build the admin:
+      <info>php bin/console cache:clear</>
+      <info>yarn ibexa-generate-tsconfig</>
+      <info>php bin/console ibexa:encore:compile</>

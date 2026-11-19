@@ -1,0 +1,10 @@
+<bg=blue;fg=white>  masilia/ibexa-blocks  </>
+
+  * Create the content model (the socle: layout_config, site, home_page, page) and see what would change first:
+      <info>php bin/console masilia:blocks:model:install --dry-run</>
+      <info>php bin/console masilia:blocks:model:install</>
+    Your blocks and content go in config/content_model/*.yaml (see the README).
+  * A theme:  <info>php bin/console masilia:blocks:theme:create <name> [--extends=standard | --standalone]</>
+    then declare it in ibexa_design_engine.design_list.
+  * A site:  <info>php bin/console masilia:blocks:site:create "Name" --domain=... --design=...</>
+  * Newsletter: also import routing_newsletter.yaml and run <info>doctrine:migrations:migrate</>.

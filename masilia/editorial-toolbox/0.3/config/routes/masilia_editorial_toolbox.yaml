@@ -1,0 +1,5 @@
+masilia_editorial_toolbox:
+    resource: '@MasiliaEditorialToolboxBundle/Resources/config/routing.yaml'
+    # /api when the admin siteaccess is matched by URI (/admin): Ibexa strips /admin before routing.
+    # /admin/api when it is matched by host.
+    prefix: /api
