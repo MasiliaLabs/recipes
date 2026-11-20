@@ -1,4 +1,8 @@
 masilia_ibexa_blocks:
+    # The view types this bundle shows. `full` is what shows a page (home_page, page, article...) with the template full/<type>.twig of
+    # the theme, or with the page of blocks of the package; without it a page falls back to the default view of Ibexa (a dump of its fields).
+    blocks:
+        view_types: [blocks, block_item, line, embed, full]
     # The names of the content model: change them only if yours differ.
     # conventions:
     #     page_type: page
