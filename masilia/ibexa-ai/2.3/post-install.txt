@@ -4,7 +4,7 @@
       <info>php -r 'echo base64_encode(random_bytes(32));'</>  ->  AI_ENCRYPTION_KEY=...
   * Create the tables:  <info>php bin/console doctrine:migrations:migrate</>
   * Install the chat dependencies, then build the admin:
-      <info>yarn add @ag-ui/client @assistant-ui/react @assistant-ui/react-ag-ui @assistant-ui/react-markdown remark-gfm</>
+      <info>yarn add react-popper @popperjs/core @ag-ui/client @assistant-ui/react @assistant-ui/react-ag-ui @assistant-ui/react-markdown remark-gfm</>
       <info>yarn ibexa-generate-tsconfig</>
       <info>php bin/console ibexa:encore:compile</>
   * Give a role the policies <comment>masilia_ai</>: use, write, destructive, structure, access.
