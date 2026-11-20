@@ -1,0 +1,23 @@
+{
+    "manifests": {
+        "masilia/ibexa-ai-craft": {
+            "manifest": {
+                "bundles": {
+                    "Masilia\\Bundle\\IbexaAiCraft\\MasiliaIbexaAiCraftBundle": [
+                        "all"
+                    ]
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>  masilia/ibexa-ai-craft  </>",
+                    "",
+                    "  * The assistant builds sites and pages out of blocks: its conventions are the ones of",
+                    "    masilia_ibexa_blocks (page, home_page, blocks field, block group).",
+                    "  * Create the content model first (<info>php bin/console masilia:blocks:model:install</>), then ask the assistant.",
+                    ""
+                ]
+            },
+            "files": [],
+            "ref": "3ab922d2db017d5cb8b124ef686065d71680e39e"
+        }
+    }
+}

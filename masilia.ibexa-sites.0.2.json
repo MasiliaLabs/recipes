@@ -1,0 +1,37 @@
+{
+    "manifests": {
+        "masilia/ibexa-sites": {
+            "manifest": {
+                "bundles": {
+                    "Masilia\\Bundle\\IbexaSites\\MasiliaIbexaSitesBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>  masilia/ibexa-sites  </>",
+                    "",
+                    "  * Create the tables:  <info>php bin/console doctrine:migrations:migrate</>",
+                    "  * Build the admin:  <info>yarn ibexa-generate-tsconfig</> then <info>php bin/console ibexa:encore:compile</>",
+                    "  * Give a role the policies <comment>masilia_site / view</> and <comment>masilia_site / manage</>.",
+                    "  * Keep a minimal technical siteaccess in config/packages/ibexa.yaml (see the README), then",
+                    "    manage the sites in the admin (Sites).",
+                    ""
+                ]
+            },
+            "files": {
+                "config/routes/masilia_ibexa_sites.yaml": {
+                    "contents": [
+                        "masilia_ibexa_sites:",
+                        "    resource: '@MasiliaIbexaSitesBundle/Resources/config/routes.yaml'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "aaac7a259d66a9032b2dc31fc1a48320791b14cc"
+        }
+    }
+}

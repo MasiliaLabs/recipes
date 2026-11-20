@@ -1,0 +1,51 @@
+{
+    "manifests": {
+        "masilia/editorial-toolbox": {
+            "manifest": {
+                "bundles": {
+                    "Masilia\\Bundle\\EditorialToolbox\\MasiliaEditorialToolboxBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>  masilia/editorial-toolbox  </>",
+                    "",
+                    "  * Add the entry to the front-office Encore build (webpack.config.js):",
+                    "      <info>const masilia = require('./vendor/masilia/editorial-toolbox/src/bundle/Resources/encore/masilia.config.js');</>",
+                    "      <info>masilia.addEntry(Encore, 'admin-toolbar.js');</>   (before Encore.getWebpackConfig())",
+                    "      <info>masilia.patchConfig(config);</>                    (after it)",
+                    "  * Render it in your layout:  <info>{{ masilia_editorial_toolbox() }}</>",
+                    ""
+                ]
+            },
+            "files": {
+                "config/packages/masilia_editorial_toolbox.yaml": {
+                    "contents": [
+                        "masilia_editorial_toolbox:",
+                        "    system:",
+                        "        default:",
+                        "            blocks_field: blocks     # the relation list that holds the ordered blocks of a page",
+                        "            admin_siteaccess: admin  # the siteaccess of the back office",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/masilia_editorial_toolbox.yaml": {
+                    "contents": [
+                        "masilia_editorial_toolbox:",
+                        "    resource: '@MasiliaEditorialToolboxBundle/Resources/config/routing.yaml'",
+                        "    # /api when the admin siteaccess is matched by URI (/admin): Ibexa strips /admin before routing.",
+                        "    # /admin/api when it is matched by host.",
+                        "    prefix: /api",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "9d8a2b340463bb8234eed963821694ee122e8ba4"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "manifests": {
+        "masilia/ibexa-ai": {
+            "manifest": {
+                "bundles": {
+                    "Masilia\\Bundle\\IbexaAi\\MasiliaIbexaAiBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>  masilia/ibexa-ai  </>",
+                    "",
+                    "  * Set an encryption key for the API keys, in .env.local:",
+                    "      <info>php -r 'echo base64_encode(random_bytes(32));'</>  ->  AI_ENCRYPTION_KEY=...",
+                    "  * Create the tables:  <info>php bin/console doctrine:migrations:migrate</>",
+                    "  * The chat needs npm packages that Composer cannot install. Without them the admin still builds, but the chat is left out. To have it:",
+                    "      <info>yarn add @ag-ui/client @assistant-ui/react @assistant-ui/react-ag-ui @assistant-ui/react-markdown remark-gfm</>",
+                    "      <info>yarn ibexa-generate-tsconfig</>",
+                    "      <info>php bin/console ibexa:encore:compile</>",
+                    "  * Give a role the policies <comment>masilia_ai</>: use, write, destructive, structure, access.",
+                    "  * Add a provider in the admin (AI Assistant).",
+                    ""
+                ]
+            },
+            "files": {
+                "config/packages/masilia_ibexa_ai.yaml": {
+                    "contents": [
+                        "masilia_ibexa_ai:",
+                        "    # Encrypts the provider API keys stored in the database: base64 of 32 random bytes.",
+                        "    # php -r 'echo base64_encode(random_bytes(32));'   then put it in AI_ENCRYPTION_KEY (.env.local)",
+                        "    # When it is empty the key comes from APP_SECRET: changing APP_SECRET makes stored keys unreadable.",
+                        "    encryption_key: '%env(default::AI_ENCRYPTION_KEY)%'",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/masilia_ibexa_ai.yaml": {
+                    "contents": [
+                        "masilia_ibexa_ai:",
+                        "    resource: '@MasiliaIbexaAiBundle/Resources/config/routes.yaml'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "61b866c4c6966240f1cf892365c26b8f1b0cf4f0"
+        }
+    }
+}

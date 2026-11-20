@@ -1,0 +1,41 @@
+{
+    "aliases": {},
+    "recipe-conflicts": [],
+    "versions": [],
+    "branch": "main",
+    "is_contrib": false,
+    "recipes": {
+        "masilia/editorial-toolbox": [
+            "0.3"
+        ],
+        "masilia/ibexa-admin-kit": [
+            "0.1"
+        ],
+        "masilia/ibexa-ai": [
+            "2.3"
+        ],
+        "masilia/ibexa-ai-craft": [
+            "2.2"
+        ],
+        "masilia/ibexa-ai-editor": [
+            "0.2"
+        ],
+        "masilia/ibexa-blocks": [
+            "0.5"
+        ],
+        "masilia/ibexa-icons": [
+            "0.1"
+        ],
+        "masilia/ibexa-sites": [
+            "0.2"
+        ]
+    },
+    "_links": {
+        "repository": "github.com/MasiliaLabs/recipes",
+        "origin_template": "{package}:{version}@github.com/MasiliaLabs/recipes:main",
+        "recipe_template": "https://raw.githubusercontent.com/MasiliaLabs/recipes/flex/main/{package_dotted}.{version}.json",
+        "recipe_template_relative": "{package_dotted}.{version}.json",
+        "archived_recipes_template": "https://raw.githubusercontent.com/MasiliaLabs/recipes/flex/main/archived/{package_dotted}/{ref}.json",
+        "archived_recipes_template_relative": "archived/{package_dotted}/{ref}.json"
+    }
+}

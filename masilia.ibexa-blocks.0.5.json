@@ -1,0 +1,103 @@
+{
+    "manifests": {
+        "masilia/ibexa-blocks": {
+            "manifest": {
+                "bundles": {
+                    "Masilia\\Bundle\\IbexaBlocks\\MasiliaIbexaBlocksBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "assets/": "assets/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>  masilia/ibexa-blocks  </>",
+                    "",
+                    "  * Create the content model (the socle: layout_config, site, home_page, page) and see what would change first:",
+                    "      <info>php bin/console masilia:blocks:model:install --dry-run</>",
+                    "      <info>php bin/console masilia:blocks:model:install</>",
+                    "    Your blocks and content go in config/content_model/*.yaml (see the README).",
+                    "  * To build the assets of your themes, add <info>one line</> to webpack.config.js (before Encore.getWebpackConfig()); the recipe copied the helper:",
+                    "      <info>require('./assets/masilia-themes.js')(Encore, __dirname);</>",
+                    "    Without it a site that uses a theme answers 500 (\"Could not find the entry acme.css in entrypoints.json\").",
+                    "  * A theme:  <info>php bin/console masilia:blocks:theme:create <name> [--extends=standard | --standalone]</>",
+                    "    then declare it in ibexa_design_engine.design_list.",
+                    "  * A site:  <info>php bin/console masilia:blocks:site:create \"Name\" --domain=... --design=...</>",
+                    "  * Newsletter: also import routing_newsletter.yaml and run <info>doctrine:migrations:migrate</>.",
+                    ""
+                ]
+            },
+            "files": {
+                "assets/masilia-themes.js": {
+                    "contents": [
+                        "const path = require('path');",
+                        "const { execFileSync } = require('child_process');",
+                        "",
+                        "/**",
+                        " * Adds to the Encore build of the project the assets of the themes of masilia/ibexa-blocks: each theme.yaml says which entry it",
+                        " * builds and from which sources (php bin/console masilia:blocks:themes --json). Without it a theme is not built, and the",
+                        " * layout of a site that uses it answers 500 ('Could not find the entry \"acme.css\" in entrypoints.json').",
+                        " *",
+                        " * In webpack.config.js, before Encore.getWebpackConfig():",
+                        " *",
+                        " *     require('./assets/masilia-themes.js')(Encore, __dirname);",
+                        " */",
+                        "module.exports = (Encore, projectDir) => {",
+                        "    let themes;",
+                        "    try {",
+                        "        const output = execFileSync('php', ['bin/console', 'masilia:blocks:themes', '--json', '--no-debug'], {",
+                        "            cwd: projectDir,",
+                        "            encoding: 'utf8',",
+                        "            stdio: ['ignore', 'pipe', 'ignore'],",
+                        "        });",
+                        "        themes = JSON.parse(output.slice(output.indexOf('{')));",
+                        "    } catch (error) {",
+                        "        throw new Error(`The theme entries could not be read (php bin/console masilia:blocks:themes --json): ${error.message}`);",
+                        "    }",
+                        "    if (themes.problems.length > 0) {",
+                        "        throw new Error(`Theme assets are wrong:\\n - ${themes.problems.join('\\n - ')}`);",
+                        "    }",
+                        "    Object.entries(themes.entries).forEach(([entry, source]) => {",
+                        "        Encore.addEntry(entry, [path.resolve(projectDir, source)]);",
+                        "    });",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/packages/masilia_ibexa_blocks.yaml": {
+                    "contents": [
+                        "masilia_ibexa_blocks:",
+                        "    # The view types this bundle shows. `full` is what shows a page (home_page, page, article...) with the template full/<type>.twig of",
+                        "    # the theme, or with the page of blocks of the package; without it a page falls back to the default view of Ibexa (a dump of its fields).",
+                        "    blocks:",
+                        "        view_types: [blocks, block_item, line, embed, full]",
+                        "    # The names of the content model: change them only if yours differ.",
+                        "    # conventions:",
+                        "    #     page_type: page",
+                        "    #     home_type: home_page",
+                        "    #     blocks_field: blocks",
+                        "    #     items_field: items",
+                        "    #     block_group: Blocks",
+                        "    # Directories of *.yaml content type definitions (config/content_model is always read).",
+                        "    # model:",
+                        "    #     directories: []",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/aa_masilia_ibexa_blocks.yaml": {
+                    "contents": [
+                        "# Loaded before the routes of Ibexa, which has a /search of its own.",
+                        "masilia_ibexa_blocks:",
+                        "    resource: '@MasiliaIbexaBlocksBundle/Resources/config/routing.yaml'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "15bf2b7040745632f3f46036b0181207315f2779"
+        }
+    }
+}
