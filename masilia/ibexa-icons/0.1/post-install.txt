@@ -1,0 +1,12 @@
+<bg=blue;fg=white>  masilia/ibexa-icons  </>
+
+  * Create the table:  <info>php bin/console doctrine:migrations:migrate</>
+  * Build the admin (it needs <comment>masilia/ibexa-admin-kit</> and its bundle):
+      <info>yarn ibexa-generate-tsconfig</>
+      <info>php bin/console bazinga:js-translation:dump public/assets --merge-domains</>
+      <info>php bin/console ibexa:encore:compile</>
+  * Give a role the policies <comment>masilia_icon / view</> and <comment>masilia_icon / manage</>.
+  * See what has no icon:  <info>php bin/console masilia:icons:list --missing</>
+    give the icons of the Masilia socle:  <info>php bin/console masilia:icons:defaults</>
+    or bring an old ibexa_admin_icons.yaml:  <info>php bin/console masilia:icons:import <file></>
+  * With masilia/ibexa-ai, ask the assistant to give an icon to the types and groups that have none.

@@ -10,6 +10,7 @@
 | `masilia/ibexa-ai-editor` | 0.2 | bundle, routes |
 | `masilia/ibexa-ai-craft` | 2.2 | bundle |
 | `masilia/ibexa-blocks` | 0.5 | bundle, routes (loaded before Ibexa's), settings skeleton |
+| `masilia/ibexa-icons` | 0.1 | bundle, routes |
 | `masilia/editorial-toolbox` | 0.3 | bundle, routes (`/api`), settings |
 
 ## Use them

@@ -1,0 +1,2 @@
+masilia_ibexa_icons:
+    resource: '@MasiliaIbexaIconsBundle/Resources/config/routes.yaml'
