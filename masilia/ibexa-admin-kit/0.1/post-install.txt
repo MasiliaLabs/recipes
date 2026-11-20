@@ -1,7 +1,7 @@
 <bg=blue;fg=white>  masilia/ibexa-admin-kit  </>
 
-  * The dropdown of the Ibexa design system imports <comment>react-popper</>, which Ibexa does not declare: if the admin build fails with
-    "contains a reference to the file react-popper", run <info>yarn add react-popper @popperjs/core</> (ideally before this require).
+  * The kit brings a stand-in for <comment>react-popper</> (which the Ibexa design system dropdown imports and Ibexa does not declare):
+    nothing to install for it.
   * Regenerate the Encore configuration, the TypeScript paths and build the admin:
       <info>php bin/console cache:clear</>
       <info>yarn ibexa-generate-tsconfig</>
