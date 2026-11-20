@@ -4,6 +4,9 @@
       <info>php bin/console masilia:blocks:model:install --dry-run</>
       <info>php bin/console masilia:blocks:model:install</>
     Your blocks and content go in config/content_model/*.yaml (see the README).
+  * To build the assets of your themes, add <info>one line</> to webpack.config.js (before Encore.getWebpackConfig()); the recipe copied the helper:
+      <info>require('./assets/masilia-themes.js')(Encore, __dirname);</>
+    Without it a site that uses a theme answers 500 ("Could not find the entry acme.css in entrypoints.json").
   * A theme:  <info>php bin/console masilia:blocks:theme:create <name> [--extends=standard | --standalone]</>
     then declare it in ibexa_design_engine.design_list.
   * A site:  <info>php bin/console masilia:blocks:site:create "Name" --domain=... --design=...</>
